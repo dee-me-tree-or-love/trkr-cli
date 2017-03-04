@@ -43,9 +43,9 @@ class Initdb(Base):
     def run(self):
         # the rule is that the database will be stored at the ~/trkr location
         # get default user location
-        home = path.expanduser("~")
-        self.trkrloc = path.join(home, DEFAULTFOLDER)
-
+        # home = path.expanduser("~")
+        # self.trkrloc = path.join(home, DEFAULTFOLDER)
+        self.trkrloc = gettrkrloc()
         # check if the trkr location exists
         if not path.exists(self.trkrloc):
             # create a folder if not
@@ -54,6 +54,7 @@ class Initdb(Base):
         # create a table tasks if necessary
         self.setupdb()
 
-        print(DATABASENAME, 'is initialized in this directory: ', self.trkrloc)
+        print(DATABASENAME, 'is initialized in this directory: ')
+        print(self.trkrloc)
         # nice for testing what parameters were supplied
         # print('You supplied the following options:', dumps(self.options, indent=2, sort_keys=True))

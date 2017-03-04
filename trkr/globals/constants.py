@@ -15,8 +15,8 @@ class TaskSchema:
         'title': "VARCHAR(32)",
         'ts': "TIME",
         'tf': "TIME",
-        'id': "INTEGER"
+        'id': "INTEGER PRIMARY KEY"  # bad to put this way, but will do for now
     }
-    constraints = {
-        'id': "PRIMARY KEY",
-    }
+    # constraints = {
+    #     'id': "PRIMARY KEY",
+    # }
