@@ -5,7 +5,7 @@ from .locatedb import checkdbloc
 
 from clint.textui import puts, colored, indent
 import sqlite3
-from json import dumps
+#from json import dumps
 
 from trkr.globals import StoredDBProc, getdbloc
 
