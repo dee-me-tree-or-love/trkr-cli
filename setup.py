@@ -51,7 +51,7 @@ setup(
     ],  # maybe more definitions
     keywords='cli',
     packages=find_packages(exclude=['docs', 'tests*']),
-    install_requires=['docopt'],
+    install_requires=['docopt','clint'],
     extras_require={
         'test': ['coverage', 'pytest', 'pytest-cov'],
     },
