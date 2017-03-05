@@ -35,9 +35,9 @@ class List(Base):
                "\n time finished: %s" \
                "\n date: %s" \
                "\n<------------->" % \
-               (task[self.title],
+               (colored.yellow(task[self.title]),
                 task[self.time_started],
-                _hoursspent,_minutesspent,_secondsspent,
+                colored.yellow(_hoursspent),colored.yellow(_minutesspent),colored.yellow(_secondsspent),
                 task[self.time_finished],
                 task[self.date])
 
@@ -57,9 +57,9 @@ class List(Base):
                 alltasks = self.getlistcomplete()
             else:
                 alltasks = self.getlisttoday()
-            puts(colored.blue("Total tasks: %s \n"%str(len(alltasks))))
+            puts(colored.green("Total tasks: %s \n"%str(len(alltasks))))
             totaltime = self.printoutlist(alltasks)
-            puts(colored.blue("Total time spent: %s h %s m %s s"%(
+            puts(colored.green("Total time spent: %s h %s m %s s"%(
                 totaltime//3600,
                 (totaltime%3600)//60,
                 (totaltime%3600)%60
