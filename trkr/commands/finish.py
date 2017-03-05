@@ -33,7 +33,7 @@ class Finish(Base):
         print(tn)
 
     def getlasttask(self):
-        return self.executedbquery(self.dbprocedures.getlasttask())[0]
+        return self.executedbquery(self.dbprocedures.getlasttask())
 
     def closetask(self, pkid):
         self.executedbcommand(self.dbprocedures.closetask(pkid))
@@ -47,7 +47,8 @@ class Finish(Base):
             try:
                 # id=0; title=1; time_started=2; time_finished=3;
                 lasttask = self.getlasttask()
-                if lasttask != None:
+                if lasttask != []: # if there is nothing - it returns an empty array
+                    lasttask = lasttask[0]  # gets the last of the 'last tasks', since the query is general it returns a list always
                     print('Last task: ', lasttask)
                     if lasttask[3] == None:
                         print('closing...')
@@ -56,7 +57,7 @@ class Finish(Base):
                     else:
                         print('task is already closed')
                 else:
-                    print('No recent tasks found')
+                    print('No recent tasks from today found')
                 # self.closetask(lasttask.id)
             except Exception as e:
                 print("db connection error:")

@@ -24,7 +24,8 @@ class Initdb(Base):
                      '{cn1} {dt1}, '  # primary key id
                      '{cn2} {dt2},'  # title
                      '{cn3} {dt3},'  # time started
-                     '{cn4} {dt4}'  # time ended
+                     '{cn4} {dt4},'  # time ended
+                     '{cn5} {dt5}'  # date
                      ')' \
                      .format(tn="tasks",
                              cn1=tasktable.id,
@@ -35,6 +36,8 @@ class Initdb(Base):
                              dt3=tasktable.datatypes['ts'],
                              cn4=tasktable.time_finished,
                              dt4=tasktable.datatypes['tf'],
+                             cn5=tasktable.date,
+                             dt5=tasktable.datatypes['date'],
                              )
                      )
         dbcon.commit()
