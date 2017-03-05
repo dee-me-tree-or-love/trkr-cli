@@ -14,19 +14,19 @@ class Start(Base):
     dbprocedures = StoredDBProc()
 
     # a generalized wrapper for the command execution
-    def executedbcommand(self,text):
-        dbcon = sqlite3.connect(getdbloc())
-        cur = dbcon.cursor()
-        cur.execute(text)
-        dbcon.commit()
-        dbcon.close()
+    # def executedbcommand(self,text):
+    #     dbcon = sqlite3.connect(getdbloc())
+    #     cur = dbcon.cursor()
+    #     cur.execute(text)
+    #     dbcon.commit()
+    #     dbcon.close()
 
 
     def closeold(self):
-        self.executedbcommand(self.dbprocedures.closeold)
+        self.dbprocedures.executedbcommand(self.dbprocedures.closeold())
 
     def starttask(self,tn):
-        self.executedbcommand(self.dbprocedures.startnewtask(tn))
+        self.dbprocedures.executedbcommand(self.dbprocedures.startnewtask(tn))
 
 
     def run(self):

@@ -8,6 +8,7 @@ Usage:
   trkr verify
   trkr start <task-name>
   trkr locatedb
+  trkr list [-c|--complete]
   trkr -h | --help
   trkr --version
 
