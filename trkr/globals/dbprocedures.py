@@ -37,7 +37,8 @@ class StoredDBProc:
                'FROM tasks ' \
                'WHERE time_started = (' \
                '    SELECT MAX(time_started) ' \
-               '    FROM tasks) ' \
+               '    FROM tasks ' \
+               '    WHERE date = CURRENT_DATE) ' \
                'AND date = CURRENT_DATE;' \
 
     def getopentasks(self):
