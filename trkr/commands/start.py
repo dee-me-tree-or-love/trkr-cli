@@ -41,7 +41,7 @@ class Start(Base):
                 self.closeold()
                 taskname = self.options['<task-name>']
                 self.starttask(taskname)
-                print('You have started the new task: ',taskname)
+                print('You have started the new task: ',colored.yellow(taskname))
             except Exception as e:
                 print("db connection error:")
                 print(e)
