@@ -58,9 +58,16 @@ class StoredDBProc:
                "FROM TASKS;"
 
     def getlisttaskstoday(self):
-        return "SELECT *, (strftime('%s', IFNULL(time_finished,CURRENT_TIME))- strftime( '%s', time_started)) as  seconds_elapsed  " \
+        return "SELECT *, (strftime('%s', " \
+               "IFNULL(time_finished,CURRENT_TIME))- strftime( '%s', time_started)) as  seconds_elapsed  " \
                "FROM TASKS " \
                "WHERE date = CURRENT_DATE;"
+
+    def getopentasks(self):
+        return  "SELECT * " \
+                "FROM tasks " \
+                "WHERE time_finished IS NULL;"
+
 
 # the instance to be shared:
 dbprocedures = StoredDBProc()
