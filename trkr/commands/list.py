@@ -25,7 +25,7 @@ class List(Base):
 
 
         if(task[self.seconds_elapsed] is not None):
-            _hoursspent = task[self.seconds_elapsed]//3600
+            _hoursspent = (task[self.seconds_elapsed]//3600)
             _minutesspent = (task[self.seconds_elapsed] - _hoursspent*3600)//60
             _secondsspent = (task[self.seconds_elapsed] - _minutesspent*60)
 
@@ -36,10 +36,10 @@ class List(Base):
                "\n date: %s" \
                "\n<------------->" % \
                (colored.yellow(task[self.title]),
-                task[self.time_started],
-                colored.yellow(_hoursspent),colored.yellow(_minutesspent),colored.yellow(_secondsspent),
-                task[self.time_finished],
-                task[self.date])
+                str(task[self.time_started]),
+                colored.yellow(str(_hoursspent)),colored.yellow(str(_minutesspent)),colored.yellow(str(_secondsspent)),
+                str(task[self.time_finished]),
+                str(task[self.date]))
 
     def printoutlist(self,alltasks):
         totaltimespent = 0
