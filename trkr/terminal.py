@@ -3,11 +3,12 @@ trkr
 
 Usage:
   trkr initdb
-  trkr current
   trkr finish
-  trkr verify
-  trkr start <task-name>
   trkr locatedb
+  trkr list [-c|--complete]
+  trkr start <task-name>
+  trkr status
+  trkr verify
   trkr -h | --help
   trkr --version
 

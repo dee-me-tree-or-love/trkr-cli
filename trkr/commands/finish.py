@@ -14,29 +14,29 @@ class Finish(Base):
     dbprocedures = StoredDBProc()
 
     # a generalized wrapper for the command execution
-    def executedbcommand(self,text):
-        dbcon = sqlite3.connect(getdbloc())
-        cur = dbcon.cursor()
-        cur.execute(text)
-        dbcon.commit()
-        dbcon.close()
-
-    def executedbquery(self,text):
-        dbcon = sqlite3.connect(getdbloc())
-        cur = dbcon.cursor()
-        cur.execute(text)
-        allrows = cur.fetchall()
-        dbcon.close()
-        return allrows
+    # def executedbcommand(self,text):
+    #     dbcon = sqlite3.connect(getdbloc())
+    #     cur = dbcon.cursor()
+    #     cur.execute(text)
+    #     dbcon.commit()
+    #     dbcon.close()
+    #
+    # def executedbquery(self,text):
+    #     dbcon = sqlite3.connect(getdbloc())
+    #     cur = dbcon.cursor()
+    #     cur.execute(text)
+    #     allrows = cur.fetchall()
+    #     dbcon.close()
+    #     return allrows
 
     def closetask(self,tn):
         print(tn)
 
     def getlasttask(self):
-        return self.executedbquery(self.dbprocedures.getlasttask())
+        return self.dbprocedures.executedbquery(self.dbprocedures.getlasttask())
 
     def closetask(self, pkid):
-        self.executedbcommand(self.dbprocedures.closetask(pkid))
+        self.dbprocedures.executedbcommand(self.dbprocedures.closetask(pkid))
 
     def run(self):
         if not checkdbloc():
